@@ -1,0 +1,266 @@
+body {
+	padding-top: 0rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+}
+.starter-template {
+	padding: 0;
+	text-align: center;
+}
+.active {
+	color: #7f7f7f!important;
+}
+.bg-dark{
+	background-color: transparent!important;
+	color: #fff;
+	padding: 2.125rem 1.5rem 2.125rem 1.5rem;
+}
+.menu-superior li{
+	font-weight: 600;
+	padding-right: 10px;
+}
+.menu-superior h1 {
+	font-size: 25px;
+	font-weight: 700;
+	display: inline-block;
+}
+.baixaraqui {
+	border: 1px solid #fff;
+	border-radius: 20px;
+}
+.baixaraqui:hover {
+	background-color: #fff;
+	color: #333!important;
+	transition-duration: 0.5s;
+}
+#navbarsExampleDefault ul{
+	float:right!important;
+}
+.navbar-collapse {
+	flex-grow: inherit!important;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.nav-link {
+    padding: 0; 
+}
+.top-nav-collapse {
+	transition-duration: 0.5s;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem!important;
+    background-color: #642D91!important;
+}
+#banner {
+	padding-top: 200px;
+	background-color: #642D91;
+	background: url('../img/bg-banner1.jpg');
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#banner .texto-banner {
+	padding-top: 180px;
+	color: #fff;
+}
+#banner .texto-banner h2{
+	font-size: 50px;
+	font-weight: 800;
+}
+.typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity:1 }
+    50%      { opacity:0 }
+}
+@-webkit-keyframes blink {
+    0%, 100% { opacity:1 }
+    50%      { opacity:0 }
+}
+#about {
+	padding-top: 250px;
+	padding-bottom: 250px;
+	/*background-color: rgba(128, 213, 250, 0.5);*/
+	background-color: #3b485a;
+}
+#about h1 {
+	font-weight: 800;
+	text-transform: uppercase;
+}
+#about p {
+	color: #fff;
+}
+#about .heading {
+    border-left: 2px solid #FFD700;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+#about span {
+    color: #FFD700!important;
+    font-weight: 800;
+}
+#about .heading .sub-heading {
+    font-size: 18px;
+    font-weight: 400;
+    color: #7f7f7f;
+}
+
+#services {
+	padding-top: 250px;
+	padding-bottom: 250px;
+	background-color: #2f3b4d;
+	background: url('../img/category-background.jpg');
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#services h1 {
+	color: #fff;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+#services .heading {
+	border-left: 2px solid #87CEEB;
+	padding-left: 20px;
+	margin-bottom: 40px;
+}
+#services span {
+	color: #642D91!important;
+	font-weight: bold;
+}
+#services .heading .sub-heading {
+	font-size: 18px;
+	font-weight: 400;
+	color: #7f7f7f;
+}
+#services .opc {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+#services i {
+	color: #ff2d55!important;
+}
+
+#contact {
+	background-color: #2f3b4d;
+	padding-top: 250px;
+	padding-bottom: 250px;
+}
+#contact h1 {
+	color: #fff;
+	font-weight: 800;
+	text-transform: uppercase;
+}
+#contact .heading {
+    border-left: 2px solid #FF69B4;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+#contact span {
+    color: #642D91!important;
+    font-weight: bold;
+}
+#contact .heading .sub-heading {
+    font-size: 18px;
+    font-weight: 400;
+    color: #7f7f7f;
+}
+.social-contato {
+	padding-top: 200px;
+}
+#contact i {
+    color: #3CB371!important;
+    font-weight: bold;
+}
+#contact .social span {
+    color: #7f7f7f!important;
+    font-weight: 400;
+}
+
+.btn-outline-info {
+    color: #00008B;
+    background-color: transparent;
+    background-image: none;
+    border-color: #00008B;
+}
+.btn-outline-info:hover {
+    background-color: #00008B;
+    border-color: #00008B;
+}
+
+#radape {
+	background-color: #fff;
+}
+
+#radape-fim {
+	padding-top: 10px;
+	background-color: #333;
+	color: #fff;
+}
+#radape-fim a {
+	color: #fff;
+	padding: 0 10px 0 10px;
+	font-size: 17px;
+}
+
+@media only screen and (max-width: 800px) {
+	.bg-dark {
+	    border-bottom: 1px solid #642D91!important;
+	    padding: 1rem 1.5rem 1rem 1.5rem;
+	}
+	#navbarsExampleDefault ul {
+	    float: left!important;
+	}
+	.baixaraqui {
+	     border: none; 
+	}
+	.man-pointing {
+		display: none;
+	}
+	.text-left {
+		text-align: center!important;
+	}
+	#banner {
+    	padding-bottom: 200px;
+	}
+	#banner .texto-banner {
+		text-align: center!important;
+		padding-top: 0;
+	}
+	#banner .texto-banner h2 {
+	    font-size: 40px;
+	    text-align: center;
+	}
+	#about {
+		padding-top: 60px;
+		padding-bottom: 100px;
+	}
+	#about a, #about p{
+		text-align: center!important;
+	}
+	#about img{
+		margin-top: 10px;
+		text-align: center!important;
+	}
+	#services {
+		padding-top: 60px;
+		padding-bottom: 100px;
+	}
+	#contact {
+		padding-top: 60px;
+		padding-bottom: 100px;
+	}
+	.social {
+		text-align: left!important;
+	}
+	.social-contato {
+		padding-top: 60px;
+		text-align: left!important;
+	}
+}
