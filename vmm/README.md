@@ -1,2 +1,0 @@
-# vmm
-Escritório de Advocacia
