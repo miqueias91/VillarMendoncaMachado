@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>Sistema Documentos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/jquery-ui.css">
+    <style>
+      body {
+        padding-top: 5rem;
+      }
+      .starter-template {
+        padding: 3rem 1.5rem;
+        text-align: left;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Sistema Documentos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gerar_rg.html">Gerar RG</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id='divdocumento' style="display:none;width:800px;height:500px" class="dialogo" title='Impressão de Documento' align='center'>
+      <br><br>
+      <canvas id='documento' name="documento" width='600' height='700' style='padding: 0;margin: 0 auto;display: block;position: absolute;top: 0;bottom: 0;left: 0;right: 0;'>
+          Seu navegador não suporta canvas.
+      </canvas>
+    </div>  
+
+    <main role="main" class="container">
+
+      <div class="starter-template">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="nome_titular">Titular</label>
+              <input type="text" class="form-control" id="nome_titular">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="nome_mae">Mãe</label>
+              <input type="text" class="form-control" id="nome_mae">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nome_pai">Pai</label>
+              <input type="text" class="form-control" id="nome_pai">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="nasc">Data Nasc.</label>
+              <input type="text" class="form-control date" id="nasc">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="sexo">Sexo</label>
+              <select id="sexo" class="form-control">
+              <option selected value="">Selecione</option>
+              <option value="F">Feminino</option>
+              <option value="M">Masculino</option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="rg">RG</label>
+              <input disabled type="text" class="form-control" id="rg">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="cpf">CPF</label>
+              <input disabled type="text" class="form-control" id="cpf">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="cidade">Cidade</label>
+              <input type="text" class="form-control" id="cidade">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="estado">Estado</label>
+              <select id="estado" class="form-control">
+                <option selected>Selecione</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary gerar_rg">Gerar RG</button>
+        </form>
+      </div>
+  
+
+    </main><!-- /.container -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="./js/jquery.mask.min.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        $( "#divdocumento" ).dialog({
+          autoOpen: false,
+          resizable: false,
+          draggable: false,
+          height: 500,
+          width:800,
+          modal:true,
+          buttons: {
+            "Fechar": function(){
+              $(this).dialog('close');
+            },
+            "Imprimir": function(){
+              var dataUrl = document.getElementById('documento').toDataURL();
+              var windowContent = '<!DOCTYPE html>';
+              windowContent += '<html>';
+              windowContent += '<head><title>documento</title></head>';
+              windowContent += '<body>';
+              windowContent += '<img src="' + dataUrl + '">';
+              windowContent += '</body>';
+              windowContent += '</html>';
+
+              var printWin = window.open('', '', 'width=' + screen.availWidth + ',height=' + screen.availHeight);
+              printWin.document.open();
+              printWin.document.write(windowContent);
+              printWin.document.addEventListener('load', function() {
+                printWin.focus();
+                printWin.print();
+                printWin.document.close();
+                printWin.close();            
+              }, true);
+            }                     
+          }
+        });
+
+        $('.date').mask('99/99/9999');
+        $("#rg").val(gerarNumeroRG());
+        $("#cpf").val(gerarNumeroCPF());
+
+        $('.gerar_rg').click(function(){
+          var expedicao = '01/01/2001';
+          var doc_origem = 'NASC. LV-138 FL129';
+          var cpf = $("#cpf").val();
+          var rg = $("#rg").val();
+          var cidade_origem = $("#cidade").val();
+          var estado_origem = $("#estado").val();
+
+          var nome_titular = $("#nome_titular").val();
+          var nasc = $("#nasc").val();
+          var sexo = $("#sexo").val();
+          var nome_mae = $("#nome_mae").val();
+          var nome_pai = $("#nome_pai").val();
+
+          var cidade = $("#cidade").val();
+          var estado = $("#estado").val();
+          
+          if (nome_titular == '') {
+            alert('Informe o nome do titular!');
+            return false;
+          }
+          else if (nome_mae == '') {
+            alert('Informe o nome da mãe!');
+            return false;
+          }
+          else if (nasc == '') {
+            alert('Informe a data de nascimento!');
+            return false;
+          }
+          else if (sexo == '') {
+            alert('Informe o sexo!');
+            return false;
+          }
+          else if (cidade == '') {
+            alert('Informe a cidade!');
+            return false;
+          }
+          else if (estado == '') {
+            alert('Informe o estado!');
+            return false;
+          }
+          else{
+            var ctx = carregarContextoCanvas('documento');
+            if(ctx){
+              var img_doc = new Image();
+              var img_foto = new Image();
+              img_doc.src = 'documentos/rg.jpg';
+              if (sexo == 'F') {
+                img_foto.src = 'documentos/avatar_feminino.png';
+              }
+              else{
+                img_foto.src = 'documentos/avatar_masculino.png';
+              }
+
+              img_doc.onload = function(){
+                ctx.drawImage(img_doc, 10, 10, 550, 700);
+                ctx.font = '15px Arial';
+                ctx.fillStyle = '#808080';
+                ctx.fillText(rg.toUpperCase(), 100, 420);
+                ctx.fillText(expedicao, 380, 410);//EXPEDICAO
+                ctx.fillText(nome_titular.toUpperCase(), 60, 450);//TITULAR
+                ctx.fillText(nome_pai.toUpperCase(), 60, 490);//FILIACAO
+                ctx.fillText(nome_mae.toUpperCase(), 60, 505);//FILIACAO
+                ctx.fillText(cidade.toUpperCase()+'-'+estado.toUpperCase(), 60, 560);//NATURALIDADE
+                ctx.fillText(nasc, 380, 550);//NASCIMENTO
+                ctx.fillText(doc_origem.toUpperCase(), 140, 580);//DOC ORIGEM
+                ctx.fillText(cidade_origem.toUpperCase()+'-'+estado_origem.toUpperCase(), 60, 600);//CIDADE DOC ORIGEM
+                ctx.fillText(cpf, 60, 640);//CPF
+                ctx.fillText('1. VIA', 480, 640);
+
+                ctx.drawImage(img_foto, 280, 112, 209, 140);
+              }
+            }
+            $('#divdocumento').dialog('open');
+          }
+        });
+      });
+
+      function gerarNumeroRG () {
+        var nn_0 = Math.floor(Math.random() * 10);
+        var nn_1 = Math.floor(Math.random() * 10);
+        var nn_2 = Math.floor(Math.random() * 10);
+        var nn_3 = Math.floor(Math.random() * 10);
+        var nn_4 = Math.floor(Math.random() * 10);
+        var nn_5 = Math.floor(Math.random() * 10);
+        var nn_6 = Math.floor(Math.random() * 10);
+        var nn_7 = Math.floor(Math.random() * 10);
+        var nn_8 = Math.floor(Math.random() * 10);
+        var nn = nn_0+''+nn_1+'.'+nn_2+''+nn_3+''+nn_4+'.'+nn_5+''+nn_6+''+nn_7+'-'+nn_8;
+        return nn;
+      }
+
+      function gerarNumeroCPF() {
+        var n1 = Math.floor(Math.random() * 10);
+        var n2 = Math.floor(Math.random() * 10);
+        var n3 = Math.floor(Math.random() * 10);
+        var n4 = Math.floor(Math.random() * 10);
+        var n5 = Math.floor(Math.random() * 10);
+        var n6 = Math.floor(Math.random() * 10);
+        var n7 = Math.floor(Math.random() * 10);
+        var n8 = Math.floor(Math.random() * 10);
+        var n9 = Math.floor(Math.random() * 10);
+
+        var d1 = n9 * 2 + n8 * 3 + n7 * 4 + n6 * 5 + n5 * 6 + n4 * 7 + n3 * 8 + n2 * 9 + n1 * 10;
+        d1 = 11 - (d1%11);
+        if (d1 >= 10) {
+          d1 = 0;
+        }
+        var d2 = d1 * 2 + n9 * 3 + n8 * 4 + n7 * 5 + n6 * 6 + n5 * 7 + n4 * 8 + n3 * 9 + n2 * 10 + n1 * 11;
+        d2 = 11 - (d2%11);
+        if (d2 >= 10) {
+            d2 = 0;
+        }
+        var retorno = '';
+        retorno = ''+n1+''+n2+''+n3+"."+n4+''+n5+''+n6+"."+''+n7+''+n8+''+n9+"-"+d1+''+d2;
+        return retorno;
+      }
+      function carregarContextoCanvas(idCanvas){
+        var elemento = document.getElementById(idCanvas);
+        if(elemento && elemento.getContext){
+          var contexto = elemento.getContext('2d');
+          if(contexto){
+            return contexto;
+          }
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>
